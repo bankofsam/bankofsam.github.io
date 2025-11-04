@@ -66,7 +66,6 @@ def load_feed():
         "stories": [
             {"title":"SAM Index edges higher", "body":"Traders cite strong latte demand"},
             {"title":"Robo hedger toggles on", "body":"Latency improved to probably fine"},
-            {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"}
             {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"},
             {"title":"Checking flood of deposits", "body":"Customers embrace new high-yield fling"},
             {"title":"ATM queues shrink overnight", "body":"Bank credits speed boosts to app"},
