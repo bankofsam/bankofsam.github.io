@@ -68,7 +68,23 @@ def load_feed():
             {"title":"Robo hedger toggles on", "body":"Latency improved to probably fine"},
             {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"}
         ],
-        "names": ["Sam A", "Jamie Q", "Taylor Q", "Jordan K", "Avery P"]
+        "names": ["Sam A", "Jamie Q", "Taylor Q", "Jordan K", "Avery P", "Riley M",
+"Casey D", "Morgan L", "Drew T", "Cameron J", "Reese F", "Peyton S",
+"Rowan H", "Skyler V", "Emerson N", "Quinn C", "Logan R", "Harper W",
+"Sage K", "Blake Z", "Elliot Y", "Finley G", "Charlie P", "Dakota M",
+"Jules E", "Alex B", "Corey L", "Shawn D", "Tatum F", "Hayden J",
+"Micah T", "Kendall C", "Spencer H", "Arden V", "Bailey N", "Parker E",
+"Devon S", "Cory R", "Blair G", "Sydney P", "Cameron M", "Lane K",
+"Toby Q", "Ashton W", "Jordan T", "Marley V", "Quincy B", "Aiden Z",
+"Rowan L", "Reagan Y", "Sasha N", "Kai G", "Ari P", "Harley J",
+"Phoenix R", "Dylan C", "Morgan T", "Kieran E", "Avery L", "Jesse S",
+"Taylor B", "Reese H", "Skylar M", "Cory D", "Casey N", "Toby R",
+"Jamie P", "Spencer V", "Riley K", "Emery F", "Rowan J", "Aiden Q",
+"Blake C", "Parker T", "Harper L", "Drew M", "Elliot R", "Quinn H",
+"Jules N", "Sage P", "Taylor D", "Cameron W", "Morgan G", "Dakota L",
+"Rowan Z", "Alex T", "Avery Q", "Skyler B", "Emerson V", "Jamie N",
+"Casey K", "Jordan F", "Riley Y", "Taylor W", "Spencer G", "Blair D",
+"Finley C", "Hayden P", "Rowan M", "Elliot S", "Ari J", "Reese H"]
     }
     if json_file is None:
         return default
