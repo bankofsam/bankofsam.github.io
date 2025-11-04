@@ -67,6 +67,18 @@ def load_feed():
             {"title":"SAM Index edges higher", "body":"Traders cite strong latte demand"},
             {"title":"Robo hedger toggles on", "body":"Latency improved to probably fine"},
             {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"}
+            {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"},
+            {"title":"Checking flood of deposits", "body":"Customers embrace new high-yield fling"},
+            {"title":"ATM queues shrink overnight", "body":"Bank credits speed boosts to app"},
+            {"title":"Loan approvals go brrr", "body":"Underwriting says 'we like the vibes'"},
+            {"title":"Mobile check-in breaks records", "body":"Digital-only users reach fever pitch"},
+            {"title":"Savings goals now effortless", "body":"Auto-roundups spark micro-wealth boom"},
+            {"title":"Branch plants a rooftop garden", "body":"Community events drive foot traffic"},
+            {"title":"Crypto-friendly policies roll out", "body":"Beta testers see legendary APYs"},
+            {"title":"Customer service hits 5 stars", "body":"Chatbot named 'Sam' steals the show"},
+            {"title":"New card design goes viral", "body":"Collectors line up for aluminum drop"},
+            {"title":"Rewards program reimagined", "body":"Points convert to surprise experiences"},
+            {"title":"Late-night transfers saved the day", "body":"Overdraft fees vanish in pilot city"}
         ],
         "names": ["Sam A", "Jamie Q", "Taylor Q", "Jordan K", "Avery P", "Riley M",
 "Casey D", "Morgan L", "Drew T", "Cameron J", "Reese F", "Peyton S",
