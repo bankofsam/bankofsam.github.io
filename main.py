@@ -64,11 +64,12 @@ def load_feed():
     # default demo content if no file provided
     default = {
         "stories": [
-            {"title":"SAM Index edges higher", "body":"Traders cite strong latte demand"},
-            {"title":"Robo hedger toggles on", "body":"Latency improved to probably fine"},
+            {"title":"SAM Index goes higher", "body":"Traders cite strong latte demand"},
+            {"title":"Robo hedger toggles on", "body":"Latency improved to probably fine- Test"},
+            {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"},
             {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"}
         ],
-        "names": ["Sam A", "Jamie Q", "Taylor R", "Jordan K", "Avery P", "Riley M"]
+        "names": ["Sam A", "Jamie Q", "retard", "Jordan K", "Avery P", "Riley M"]
     }
     if json_file is None:
         return default
@@ -336,7 +337,6 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
       </div>
     </div>
 
-    <div class="footer">This is a prank site No real quotes No real advice</div>
   </div>
 
   <div class="watermark"></div>
