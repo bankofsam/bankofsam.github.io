@@ -65,7 +65,7 @@ def load_feed():
     default = {
         "stories": [
             {"title":"SAM Index edges higher", "body":"Traders cite strong latte demand"},
-            {"title":"Robo hedger toggles on", "body":"Latency improved to probably fine"},
+            {"title":"Robo hedger toggles on", "body":"Latency improved to probably fine- Test"},
             {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"}
         ],
         "names": ["Sam A", "Jamie Q", "Taylor R", "Jordan K", "Avery P", "Riley M"]
