@@ -68,7 +68,7 @@ def load_feed():
             {"title":"Robo hedger toggles on", "body":"Latency improved to probably fine"},
             {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"}
         ],
-        "names": [“Sam A”, “Jamie Q”, “Taylor Q”, “Jordan K”, “Avery P”]
+        "names": [ "Sam A”, “Jamie Q”, “Taylor Q”, “Jordan K”, “Avery P” ]
     }
     if json_file is None:
         return default
