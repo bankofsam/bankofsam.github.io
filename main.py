@@ -66,6 +66,7 @@ def load_feed():
         "stories": [
             {"title":"SAM Index goes higher", "body":"Traders cite strong latte demand"},
             {"title":"Robo hedger toggles on", "body":"Latency improved to probably fine- Test"},
+            {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"},
             {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"}
         ],
         "names": ["Sam A", "Jamie Q", "retard", "Jordan K", "Avery P", "Riley M"]
