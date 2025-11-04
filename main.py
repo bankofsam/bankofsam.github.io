@@ -332,7 +332,7 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
       </div>
 
       <div class="panel">
-        <div class="hdr">Right Rail <span class="samdot"></span></div>
+        <div class="hdr">OTHER NEWS OF THE DAY <span class="samdot"></span></div>
         <div style="padding:10px;">
           <div style="margin-bottom:10px; font-weight:700;">
             <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;"> Research Headline
