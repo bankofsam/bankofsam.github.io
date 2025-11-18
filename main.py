@@ -335,24 +335,165 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
       </div>
 
       <div class="panel">
-        <div class="hdr">OTHER NEWS OF THE DAY <span class="samdot"></span></div>
-        <div style="padding:10px;">
-          <div style="margin-bottom:10px; font-weight:700;">
-            <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;"> Research Headline
-          </div>
-          <div style="font-size:12px; color:var(--muted);">SAMBUCKS outlook remains very green</div>
-          <hr style="border-color: rgba(255,255,255,0.08)" />
-          <div style="margin-bottom:10px; font-weight:700;">
-            <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;"> Weather Bug
-          </div>
-          <div style="font-size:12px;">NYC numbers Finally don't feel like alpha, but instead, Beta!</div>
-          <hr style="border-color: rgba(255,255,255,0.08)" />
-          <div style="font-weight:700;">
-            <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;"> Sponsored
-          </div>
-          <div style="font-size:12px; color:var(--muted);">Open a new SAMBUCKS account and receive a commemorative mouse pad</div>
-        </div>
-      </div>
+  <div class="hdr">OTHER NEWS OF THE DAY <span class="samdot"></span></div>
+  <div style="padding:10px;">
+
+    <!-- Original item 1 -->
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Research Headline
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      SAMBUCKS outlook remains very green
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <!-- Original item 2 -->
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Weather Bug
+    </div>
+    <div style="font-size:12px;">
+      NYC numbers Finally don't feel like alpha, but instead, Beta!
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <!-- Original item 3 -->
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Sponsored
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Open a new SAMBUCKS account and receive a commemorative mouse pad
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <!-- New Articles Begin -->
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Balance sheet very green
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Analysts upgrade outlook to moonish
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Checking flood of deposits
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Customers embrace new high-yield fling
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      ATM queues shrink overnight
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Bank credits speed boosts to app
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Loan approvals go brrr
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Underwriting says 'we like the vibes'
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Mobile check-in breaks records
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Digital-only users reach fever pitch
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Savings goals now effortless
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Auto-roundups spark micro-wealth boom
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Branch plants a rooftop garden
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Community events drive foot traffic
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Crypto-friendly policies roll out
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Beta testers see legendary APYs
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Customer service hits 5 stars
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Chatbot named 'Sam' steals the show
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      New card design goes viral
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Collectors line up for aluminum drop
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Rewards program reimagined
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Points convert to surprise experiences
+    </div>
+
+    <hr style="border-color: rgba(255,255,255,0.08)" />
+
+    <div style="margin-bottom:10px; font-weight:700;">
+      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
+      Late-night transfers saved the day
+    </div>
+    <div style="font-size:12px; color:var(--muted);">
+      Overdraft fees vanish in pilot city
+    </div>
+
+    <!-- New Articles End -->
+
+  </div>
+</div>
     </div>
 
   </div>
