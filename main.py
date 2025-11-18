@@ -353,7 +353,7 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
           <div style="margin-bottom:10px; font-weight:700;">
             <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;"> Weather Bug
           </div>
-          <div style="font-size:12px;">NYC Mostly numbers Feels like alpha</div>
+          <div style="font-size:12px;">NYC numbers Finally don't feel like alpha, but instead, Beta!</div>
           <hr style="border-color: rgba(255,255,255,0.08)" />
           <div style="font-weight:700;">
             <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;"> Sponsored
