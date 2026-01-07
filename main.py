@@ -1,4 +1,3 @@
-# app.py
 import json
 import base64
 from pathlib import Path
@@ -64,7 +63,7 @@ def load_feed():
     # default demo content if no file provided
     default = {
         "stories": [
-            {"title":"SAM Index edges higher", "body":"Traders cite strong latte demand"},
+            {"title":"Alex Coin completely valueless", "body":"DO NOT INVEST IN ALEX COIN"},
             {"title":"Robo hedger toggles on", "body":"Latency improved to probably fine"},
             {"title":"Balance sheet very green", "body":"Analysts upgrade outlook to moonish"},
             {"title":"Checking flood of deposits", "body":"Customers embrace new high-yield fling"},
