@@ -297,6 +297,10 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
 </style>
 </head>
 <body>
+<div id="alertBubble" class="alert-popup">
+    <span class="close-alert" onclick="closeAlert()">×</span>
+    <div id="alertText"><b>MARKET ALERT:</b> Connecting to secure server...</div>
+  </div>
   <div class="topbar">
     <div class="wrap">
       <div class="brand">
