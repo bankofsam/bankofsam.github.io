@@ -258,36 +258,47 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
   position:absolute; right:10px; top:6px; width:18px; height:18px;
   background: url('{payload["logo"]}') center/contain no-repeat;
   filter: drop-shadow(0 0 4px rgba(180,255,107,0.6));
-  animation: pl 2.2s ease-in-out infinite;
-  /* ALERT POPUP STYLING */
-.alert-popup {{
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 300px;
-  background: linear-gradient(135deg, #0b2f1a, #06140b);
-  border: 2px solid var(--accent);
-  color: var(--text);
-  padding: 18px;
-  border-radius: 8px;
-  box-shadow: 0 15px 45px rgba(0,0,0,0.8);
-  z-index: 10001;
+animation: pl 2.2s ease-in-out infinite;
+}
+
+/* --- THE NEW ALERT BOX STYLE --- */
+.alert-overlay {{
+  position: fixed !important;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999998;
   display: none;
-  font-size: 14px;
-  animation: slideInBubble 0.6s ease-out;
 }}
-.close-alert {{
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  cursor: pointer;
+
+.alert-popup {{
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  background: linear-gradient(135deg, #0b2f1a, #06140b);
+  border: 3px solid var(--accent);
+  color: var(--text);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 50px rgba(25, 229, 122, 0.4);
+  z-index: 999999;
+  display: none;
+  text-align: center;
+  font-size: 16px;
+}}
+
+.acknowledge-btn {{
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: var(--g3);
+  border: none;
+  color: white;
   font-weight: bold;
-  font-size: 18px;
-  color: var(--accent);
-}}
-@keyframes slideInBubble {{
-  from {{ transform: translateX(120%); opacity: 0; }}
-  to {{ transform: translateX(0); opacity: 1; }}
+  cursor: pointer;
+  border-radius: 5px;
+  text-transform: uppercase;
 }}
 @keyframes pl {{
   0% {{ transform: scale(1) rotate(0deg); }}
