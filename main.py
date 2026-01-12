@@ -258,47 +258,36 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
   position:absolute; right:10px; top:6px; width:18px; height:18px;
   background: url('{payload["logo"]}') center/contain no-repeat;
   filter: drop-shadow(0 0 4px rgba(180,255,107,0.6));
-animation: pl 2.2s ease-in-out infinite;
-}
-
-/* --- THE NEW ALERT BOX STYLE --- */
-.alert-overlay {{
-  position: fixed !important;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 999998;
-  display: none;
-}}
-
+  animation: pl 2.2s ease-in-out infinite;
+  /* ALERT POPUP STYLING */
 .alert-popup {{
-  position: fixed !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%);
-  width: 350px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 300px;
   background: linear-gradient(135deg, #0b2f1a, #06140b);
-  border: 3px solid var(--accent);
+  border: 2px solid var(--accent);
   color: var(--text);
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 0 50px rgba(25, 229, 122, 0.4);
-  z-index: 999999;
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.8);
+  z-index: 10001;
   display: none;
-  text-align: center;
-  font-size: 16px;
+  font-size: 14px;
+  animation: slideInBubble 0.6s ease-out;
 }}
-
-.acknowledge-btn {{
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: var(--g3);
-  border: none;
-  color: white;
-  font-weight: bold;
+.close-alert {{
+  position: absolute;
+  top: 5px;
+  right: 10px;
   cursor: pointer;
-  border-radius: 5px;
-  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--accent);
+}}
+@keyframes slideInBubble {{
+  from {{ transform: translateX(120%); opacity: 0; }}
+  to {{ transform: translateX(0); opacity: 1; }}
 }}
 @keyframes pl {{
   0% {{ transform: scale(1) rotate(0deg); }}
@@ -671,3 +660,81 @@ setTimeout(showRandomAlert, 4000);
 """
 
 components.html(HTML, height=1200, scrolling=True)
+# --- STEP 4: ERROR-PROOF CENTERED POP-UP ---
+# This creates a separate 'layer' for the popup so it doesn't mess with the main site layout.
+POPUP_CODE = """
+<style>
+  /* The dark background that covers the whole screen */
+  .custom-overlay {{
+    position: fixed !important;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 999998;
+    display: none;
+    font-family: 'Verdana', sans-serif;
+  }}
+
+  /* The actual centered box */
+  .custom-popup {{
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background: linear-gradient(135deg, #0b2f1a, #06140b);
+    border: 3px solid #b4ff6b;
+    color: #eaf6ec;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 999999;
+    display: none;
+    box-shadow: 0 0 40px rgba(180, 255, 107, 0.4);
+  }}
+
+  .popup-btn {{
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #b4ff6b;
+    color: #06140b;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }}
+</style>
+
+<div id="popupOverlay" class="custom-overlay"></div>
+<div id="popupBox" class="custom-popup">
+  <div id="popupMessage" style="font-size: 16px; line-height: 1.5;"></div>
+  <button class="popup-btn" onclick="closeSamAlert()">Acknowledge</button>
+</div>
+
+<script>
+  const messages = [
+    "<b>⚠️ MARKET ADVISORY</b><br><br>SAM01 has breached resistance levels. Market sentiment is now ultra-moonish!",
+    "<b>🚨 WHALE ACTIVITY</b><br><br>Massive buy order detected from a Tier-1 Sam Client. Liquidity is surging!",
+    "<b>💎 VIBE CHECK</b><br><br>The algorithm has detected 'Diamond Hands' across all SAMBUCKS accounts."
+  ];
+
+  function showSamAlert() {{
+    const msg = messages[Math.floor(Math.random() * messages.length)];
+    document.getElementById("popupMessage").innerHTML = msg;
+    document.getElementById("popupOverlay").style.display = "block";
+    document.getElementById("popupBox").style.display = "block";
+  }}
+
+  function closeSamAlert() {{
+    document.getElementById("popupOverlay").style.display = "none";
+    document.getElementById("popupBox").style.display = "none";
+  }}
+
+  // Pop up after 4 seconds
+  setTimeout(showSamAlert, 4000);
+</script>
+"""
+
+# This line injects the popup logic into your app
+components.html(POPUP_CODE, height=0)
