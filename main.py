@@ -259,6 +259,35 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
   background: url('{payload["logo"]}') center/contain no-repeat;
   filter: drop-shadow(0 0 4px rgba(180,255,107,0.6));
   animation: pl 2.2s ease-in-out infinite;
+  /* ALERT POPUP STYLING */
+.alert-popup {{
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 300px;
+  background: linear-gradient(135deg, #0b2f1a, #06140b);
+  border: 2px solid var(--accent);
+  color: var(--text);
+  padding: 18px;
+  border-radius: 8px;
+  box-shadow: 0 15px 45px rgba(0,0,0,0.8);
+  z-index: 10001;
+  display: none;
+  font-size: 14px;
+  animation: slideInBubble 0.6s ease-out;
+}}
+.close-alert {{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--accent);
+}}
+@keyframes slideInBubble {{
+  from {{ transform: translateX(120%); opacity: 0; }}
+  to {{ transform: translateX(0); opacity: 1; }}
 }}
 @keyframes pl {{
   0% {{ transform: scale(1) rotate(0deg); }}
