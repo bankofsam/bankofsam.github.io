@@ -441,54 +441,6 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
 
     <hr style="border-color: rgba(255,255,255,0.08)" />
 
-    <div style="margin-bottom:10px; font-weight:700;">
-      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
-      Crypto-friendly policies roll out
-    </div>
-    <div style="font-size:12px; color:var(--muted);">
-      Beta testers see legendary APYs
-    </div>
-
-    <hr style="border-color: rgba(255,255,255,0.08)" />
-
-    <div style="margin-bottom:10px; font-weight:700;">
-      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
-      Customer service hits 5 stars
-    </div>
-    <div style="font-size:12px; color:var(--muted);">
-      Chatbot named 'Sam' steals the show
-    </div>
-
-    <hr style="border-color: rgba(255,255,255,0.08)" />
-
-    <div style="margin-bottom:10px; font-weight:700;">
-      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
-      New card design goes viral
-    </div>
-    <div style="font-size:12px; color:var(--muted);">
-      Collectors line up for aluminum drop
-    </div>
-
-    <hr style="border-color: rgba(255,255,255,0.08)" />
-
-    <div style="margin-bottom:10px; font-weight:700;">
-      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
-      Rewards program reimagined
-    </div>
-    <div style="font-size:12px; color:var(--muted);">
-      Points convert to surprise experiences
-    </div>
-
-    <hr style="border-color: rgba(255,255,255,0.08)" />
-
-    <div style="margin-bottom:10px; font-weight:700;">
-      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
-      Late-night transfers saved the day
-    </div>
-    <div style="font-size:12px; color:var(--muted);">
-      Overdraft fees vanish in pilot city
-    </div>
-
     <!-- New Articles End -->
 
   </div>
