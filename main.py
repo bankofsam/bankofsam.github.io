@@ -660,3 +660,81 @@ setTimeout(showRandomAlert, 4000);
 """
 
 components.html(HTML, height=1200, scrolling=True)
+# --- STEP 4: ERROR-PROOF CENTERED POP-UP ---
+# This creates a separate 'layer' for the popup so it doesn't mess with the main site layout.
+POPUP_CODE = """
+<style>
+  /* The dark background that covers the whole screen */
+  .custom-overlay {{
+    position: fixed !important;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 999998;
+    display: none;
+    font-family: 'Verdana', sans-serif;
+  }}
+
+  /* The actual centered box */
+  .custom-popup {{
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    background: linear-gradient(135deg, #0b2f1a, #06140b);
+    border: 3px solid #b4ff6b;
+    color: #eaf6ec;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    z-index: 999999;
+    display: none;
+    box-shadow: 0 0 40px rgba(180, 255, 107, 0.4);
+  }}
+
+  .popup-btn {{
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #b4ff6b;
+    color: #06140b;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }}
+</style>
+
+<div id="popupOverlay" class="custom-overlay"></div>
+<div id="popupBox" class="custom-popup">
+  <div id="popupMessage" style="font-size: 16px; line-height: 1.5;"></div>
+  <button class="popup-btn" onclick="closeSamAlert()">Acknowledge</button>
+</div>
+
+<script>
+  const messages = [
+    "<b>⚠️ MARKET ADVISORY</b><br><br>SAM01 has breached resistance levels. Market sentiment is now ultra-moonish!",
+    "<b>🚨 WHALE ACTIVITY</b><br><br>Massive buy order detected from a Tier-1 Sam Client. Liquidity is surging!",
+    "<b>💎 VIBE CHECK</b><br><br>The algorithm has detected 'Diamond Hands' across all SAMBUCKS accounts."
+  ];
+
+  function showSamAlert() {{
+    const msg = messages[Math.floor(Math.random() * messages.length)];
+    document.getElementById("popupMessage").innerHTML = msg;
+    document.getElementById("popupOverlay").style.display = "block";
+    document.getElementById("popupBox").style.display = "block";
+  }}
+
+  function closeSamAlert() {{
+    document.getElementById("popupOverlay").style.display = "none";
+    document.getElementById("popupBox").style.display = "none";
+  }}
+
+  // Pop up after 4 seconds
+  setTimeout(showSamAlert, 4000);
+</script>
+"""
+
+# This line injects the popup logic into your app
+components.html(POPUP_CODE, height=0)
