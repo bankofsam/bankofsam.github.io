@@ -10,29 +10,93 @@ st.set_page_config(page_title="Bank of Sam — SAMBUCKS", layout="wide", initial
 
 st.markdown("""
 <style>
-/* app + page background forced dark so any gaps aren’t white */
-:root { --bankofsam-bg: #06140b; }
-html, body, .stApp { background: var(--bankofsam-bg) !important; }
+<style>
+  /* Centered Overlay Background (dims the rest of the screen slightly) */
+  .alert-overlay {{
+    position: fixed !important;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6); /* Darkens the background */
+    z-index: 999998;
+    display: none;
+  }}
 
-/* nuke sidebar entirely */
-[data-testid="stSidebar"] { display: none !important; }
+  /* Centered Alert Box */
+  .alert-popup {{
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(0.7); /* Starts slightly smaller */
+    width: 350px;
+    background: linear-gradient(135deg, #0b2f1a, #06140b);
+    border: 3px solid #b4ff6b; /* Bright Sam green border */
+    color: #eaf6ec;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 50px rgba(25, 229, 122, 0.4);
+    z-index: 999999;
+    display: none;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }}
 
-/* fully remove the top header (visibility:hidden leaves height!) */
-[data-testid="stHeader"] { display: none !important; }
-header { display: none !important; }            /* older Streamlit */
-footer { display: none !important; }            /* optional: hide footer */
+  /* When the alert is active */
+  .alert-popup.active {{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    display: block;
+  }}
 
-/* remove the default top padding/margins */
-[data-testid="stAppViewContainer"] > .main { padding-top: 0 !important; }
-.block-container { padding: 0 !important; margin: 0 !important; max-width: 100% !important; }
-
-/* kill any first-child spacing in the main stack */
-section.main > div:first-child { margin-top: 0 !important; padding-top: 0 !important; }
-
-/* make the component iframe not add any stray spacing */
-iframe[title="st.iframe"] { display: block; margin: 0; background: transparent; }
+  .close-btn {{
+    margin-top: 15px;
+    padding: 8px 20px;
+    background: #16a34a;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+  }}
+  .close-btn:hover {{ background: #b4ff6b; color: #000; }}
 </style>
-""", unsafe_allow_html=True)
+
+<div id="alertOverlay" class="alert-overlay"></div>
+<div id="alertBubble" class="alert-popup">
+  <div id="alertText" style="margin-bottom:10px;"></div>
+  <button class="close-btn" onclick="closeAlert()">Acknowledge</button>
+</div>
+
+<script>
+  function showRandomAlert() {{
+    const alerts = [
+      "<b>⚠️ MARKET ADVISORY:</b><br>SAM01 has breached the resistance level. Sentiment is now ultra-moonish!",
+      "<b>🚨 WHALE ACTIVITY:</b><br>Massive buy order detected from a top-tier Sam Client. Liquidity is surging!",
+      "<b>💎 VIBE CHECK:</b><br>The algorithm has detected 'Diamond Hands' across all SAMBUCKS accounts."
+    ];
+    
+    document.getElementById("alertText").innerHTML = alerts[Math.floor(Math.random()*alerts.length)];
+    
+    // Show both the dark background and the box
+    document.getElementById("alertOverlay").style.display = "block";
+    const bubble = document.getElementById("alertBubble");
+    bubble.style.display = "block";
+    
+    // Tiny delay to trigger the smooth pop-in animation
+    setTimeout(() => bubble.classList.add("active"), 10);
+  }}
+
+  function closeAlert() {{
+    document.getElementById("alertOverlay").style.display = "none";
+    document.getElementById("alertBubble").style.display = "none";
+    document.getElementById("alertBubble").classList.remove("active");
+  }}
+
+  // Pop up 4 seconds after opening
+  setTimeout(showRandomAlert, 4000);
+</script>
 
 
 # controls bar for file inputs (kept tiny)
