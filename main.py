@@ -631,6 +631,29 @@ requestAnimationFrame(step);
 setInterval(() => {{ buildWatch(); buildTickerStrip(); }}, 6000);
 setInterval(spinBreaking, 5000);
 setInterval(addOrderRow, 1200);
+/* ALERT BUBBLE LOGIC */
+const alertOptions = [
+  "<b>MARKET MOVE:</b> SAM01 surged +15% on high volume!",
+  "<b>WHALE ALERT:</b> Large buy order detected on SAM04.",
+  "<b>RUMOR:</b> Bank of Sam to announce 2:1 stock split?",
+  "<b>VIBE CHECK:</b> Market sentiment is officially 'MOONISH'.",
+  "<b>TECH ALERT:</b> Robo-hedger just executed 5,000 trades."
+];
+
+function showRandomAlert() {{
+  const bubble = document.getElementById("alertBubble");
+  const text = document.getElementById("alertText");
+  const randomMsg = alertOptions[Math.floor(Math.random() * alertOptions.length)];
+  text.innerHTML = randomMsg;
+  bubble.style.display = "block";
+}}
+
+function closeAlert() {{
+  document.getElementById("alertBubble").style.display = "none";
+}}
+
+// Wait 4 seconds after page load, then show the alert
+setTimeout(showRandomAlert, 4000);
 </script>
 </body>
 </html>
