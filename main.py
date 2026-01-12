@@ -10,7 +10,6 @@ st.set_page_config(page_title="Bank of Sam — SAMBUCKS", layout="wide", initial
 
 st.markdown("""
 <style>
-<style>
   /* Centered Overlay Background (dims the rest of the screen slightly) */
   .alert-overlay {{
     position: fixed !important;
