@@ -282,7 +282,7 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
   top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 520px;
+  width: 600px;
   max-width: 90%;
   background: linear-gradient(135deg, #0b2f1a, #06140b);
   border: 3px solid var(--accent);
