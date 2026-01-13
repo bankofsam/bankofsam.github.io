@@ -255,11 +255,15 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
   background: url('{payload["logo"]}') center/contain no-repeat;
 }}
 .pulse-logo {{
-  position:absolute; right:10px; top:6px; width:18px; height:18px;
+  position: absolute;
+  right: 10px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
   background: url('{payload["logo"]}') center/contain no-repeat;
   filter: drop-shadow(0 0 4px rgba(180,255,107,0.6));
   animation: pl 2.2s ease-in-out infinite;
-  /* ALERT POPUP STYLING */
+}}
 .alert-popup {{
   position: fixed;
   bottom: 30px;
