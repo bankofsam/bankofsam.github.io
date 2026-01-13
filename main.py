@@ -134,7 +134,7 @@ payload = {
 }
 
 # big HTML block
-HTML = f"""
+HTML = """
 <!DOCTYPE html>
 <html>
 <head>
@@ -504,7 +504,7 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
 
 <script>
 // payload from Python
-const SEED = {json.dumps(payload)};
+const SEED = """ + json.dumps(payload) + """;
 
 // helpers
 function fmt(n) {{ return Number(n).toFixed(2); }}
