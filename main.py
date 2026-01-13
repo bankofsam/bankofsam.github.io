@@ -726,40 +726,44 @@ document.getElementById("samAISend").onclick = function() {{
     const log = document.getElementById("samChatLog");
     const introText = document.getElementById("samAIText");
     const userVal = input.value.trim();
+    const upperVal = userVal.toUpperCase(); // This helps detect "sam01" or "SAM01"
 
     if (userVal !== "") {{
         log.style.display = "block";
         introText.style.display = "none";
 
-        // 1. Add your message to the log
         const userMsg = document.createElement("div");
         userMsg.innerHTML = `<b style="color:#b4ff6b;">YOU:</b> ` + userVal;
         userMsg.style.marginBottom = "5px";
         log.appendChild(userMsg);
 
-        // 2. The Random Brain
-        const brain = [
-            "Analyzing the order flow... the vibes are definitely moonish.",
-            "I've cross-referenced that with the SAMBUCKS treasury. Looking solid.",
-            "Interesting take. My algorithms suggest holding until the green candle peaks.",
-            "Acknowledged. I'll keep an eye on the spreads for you.",
-            "System check: 100% Alpha detected. No Beta allowed here.",
-            "Processing... wait, did you see that spike on SAM01? Bullish.",
-            "Your request has been logged. Higher-ups in the SAM network are pleased.",
-            "The volatility is high, but my confidence in your portfolio is higher."
-        ];
-        
-        const randomReply = brain[Math.floor(Math.random() * brain.length)];
+        // --- THE BRAIN WITH KEYWORDS ---
+        let response = "";
 
-        // 3. Create the AI response line
+        if (upperVal.includes("SAM01")) {{
+            response = "SAM01 is our flagship asset. Current volatility is optimal for a long position.";
+        }} else if (upperVal.includes("HELP") || upperVal.includes("HELLO")) {{
+            response = "I am the SAM AI. You can ask me about specific tickers or general market sentiment.";
+        }} else if (upperVal.includes("SELL") || upperVal.includes("EXIT")) {{
+            response = "Exit order logic is currently restricted to Diamond Handed VIPs only.";
+        }} else {{
+            // If no keywords match, pick a random one like before
+            const brain = [
+                "Analyzing the order flow... the vibes are definitely moonish.",
+                "I've cross-referenced that with the SAMBUCKS treasury. Looking solid.",
+                "System check: 100% Alpha detected. No Beta allowed here.",
+                "The volatility is high, but my confidence in your portfolio is higher."
+            ];
+            response = brain[Math.floor(Math.random() * brain.length)];
+        }}
+
         const samMsg = document.createElement("div");
         samMsg.style.marginBottom = "8px";
         samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> <span style="font-style:italic; opacity:0.7;">Thinking...</span>`;
         log.appendChild(samMsg);
 
-        // 4. Show the random reply after a 0.6s delay
         setTimeout(() => {{
-            samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> ` + randomReply;
+            samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> ` + response;
             log.scrollTop = log.scrollHeight;
         }}, 600);
 
@@ -767,13 +771,6 @@ document.getElementById("samAISend").onclick = function() {{
         log.scrollTop = log.scrollHeight;
     }}
 }};
-
-// This line allows the 'Enter' key to work
-document.getElementById("samAIInput").addEventListener("keypress", function (e) {{
-    if (e.key === 'Enter') {{
-        document.getElementById("samAISend").click();
-    }}
-}});
 </script>
 </body>
 </html>
