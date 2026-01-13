@@ -769,7 +769,7 @@ setTimeout(showRandomAlert, 4000);
 
   // User types a message
   chatInput.addEventListener("keypress", function(e) {
-    if (e.key === "Enter" && chatInput.value.trim() !== "") {
+    if (e.key === "Enter" && chatInput.value.trim() !== "") {{
       const userMsg = document.createElement("div");
       userMsg.className = "message";
       userMsg.textContent = "You: " + chatInput.value;
@@ -785,8 +785,8 @@ setTimeout(showRandomAlert, 4000);
 
       // Scroll to bottom
       chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-  });
+    }}
+  }});
 </script>
 </body>
 </html>
