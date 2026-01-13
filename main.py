@@ -140,7 +140,7 @@ HTML = f"""
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>Bank of Sam — SAMBUCKS</title>
+<title>BANK OF SAM — SAMBUCKS</title>
 <style>
 :root {{
   /* green network vibe */
@@ -340,7 +340,7 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
     <div class="wrap">
       <div class="brand">
         <img src="{payload['logo']}" onerror="this.style.display='none'"/>
-        <div class="title">Bank of Sam — SAMBUCKS</div>
+        <div class="title">BANK OF SAM — SAMBUCKS</div>
       </div>
       <div class="navbar">
         <div class="navbtn sam">Home</div>
