@@ -279,15 +279,15 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
 /* CENTERED ALERT BOX */
 .alert-popup {{
   position: fixed;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 420px;
+  width: 520px;
   max-width: 90%;
   background: linear-gradient(135deg, #0b2f1a, #06140b);
   border: 3px solid var(--accent);
   color: var(--text);
-  padding: 28px;
+  padding: 34px;
   border-radius: 14px;
   box-shadow: 0 25px 80px rgba(0,0,0,0.9);
   z-index: 10001;
