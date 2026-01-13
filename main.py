@@ -756,13 +756,13 @@ document.getElementById("samAISend").onclick = function() {{
         }}
 
         // 2. If it wasn't a specific ticker, check the other keywords
-        if (foundTicker) {
+        if (foundTicker) {{
             // Already set response above
-        } else if (upperVal.includes("TICKERS") || upperVal.includes("STOCKS") || upperVal.includes("LIST")) {{
+        }} else if (upperVal.includes("TICKERS") || upperVal.includes("STOCKS") || upperVal.includes("LIST")) {{
             response = "I am currently tracking SAM01 through SAM10. Which one would you like a deep dive on?";
         }} else if (upperVal.includes("SAMBUCKS") || upperVal.includes("MONEY")) {{
             response = "The SAMBUCKS ecosystem is expanding. Treasury reserves are at an all-time high.";
-        } 
+        }} 
         
         if (upperVal.includes("SAM01")) {{
             response = "SAM01 is our flagship asset. Current volatility is optimal for a long position.";
