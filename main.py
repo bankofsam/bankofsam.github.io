@@ -721,6 +721,9 @@ function closeSamAI() {{
 }}
 
 setTimeout(showSamAI, 6000);
+// --- NEW & IMPROVED BRAIN WITH MEMORY AND PRICE GEN ---
+let lastTicker = ""; // Memory: Stores the last ticker you talked about
+
 document.getElementById("samAISend").onclick = function() {{
     const input = document.getElementById("samAIInput");
     const log = document.getElementById("samChatLog");
@@ -737,98 +740,103 @@ document.getElementById("samAISend").onclick = function() {{
         userMsg.style.marginBottom = "5px";
         log.appendChild(userMsg);
 
-        // --- THE BRAIN WITH KEYWORDS ---
-      // --- THE BRAIN WITH KEYWORDS ---
         let response = "";
         let foundTicker = false;
 
-        // 1. Check for specific tickers SAM01 through SAM10
+        // 1. Dynamic Price/Change Generator for "Smart" feel
+        let simPrice = (Math.random() * 240 + 10).toFixed(2);
+        let simChg = (Math.random() * 4).toFixed(2);
+        let trend = Math.random() > 0.5 ? "+" : "-";
+
+        // 2. Check for Tickers SAM01-SAM10
         for (let i = 1; i <= 10; i++) {{
             let tickerNum = (i < 10 ? "0" + i : i);
             let t = "SAM" + tickerNum; 
             if (upperVal.includes(t)) {{
                 foundTicker = true;
+                lastTicker = t; // Memory set!
+                
                 if (t === "SAM01") {{
-                    response = "SAM01: The Flagship. Currently undergoing a massive accumulation phase. Expect a breakout.";
+                    response = "SAM01: The Flagship. Price: $" + simPrice + " (" + trend + simChg + "%). Accumulation phase detected. Expect a breakout.";
                 }} else if (t === "SAM02") {{
-                    response = "SAM02: The sleeper hit. Low volume but the order book is stacked with hidden buy walls.";
+                    response = "SAM02: Sleeper hit. Price: $" + simPrice + ". Buy walls are stacking in the dark pools.";
                 }} else if (t === "SAM03") {{
-                    response = "SAM03: High Volatility. Our scanners show a 10/10 risk rating. Not for the faint of heart.";
+                    response = "SAM03: 10/10 Risk Rating. Price: $" + simPrice + ". This is for diamond-handed degens only.";
                 }} else if (t === "SAM04") {{
-                    response = "SAM04: The Oracle. This asset historically front-runs the entire SAMBUCKS index.";
+                    response = "SAM04: The Oracle. Price: $" + simPrice + ". My sensors indicate this is front-running the index.";
                 }} else if (t === "SAM05") {{
-                    response = "SAM05: The Pivot. We are seeing a rotation out of SAM02 and into SAM05 as we speak.";
+                    response = "SAM05: The Pivot. Price: $" + simPrice + ". Rotation from SAM02 detected.";
                 }} else if (t === "SAM06") {{
-                    response = "SAM06: The Hedge. When the market bleeds, SAM06 stays green. The ultimate safety play.";
+                    response = "SAM06: The Hedge. Price: $" + simPrice + ". Safety play confirmed for current market volatility.";
                 }} else if (t === "SAM07") {{
-                    response = "SAM07: Institutional Grade. Big money is parked here. Minimum slippage, maximum stability.";
+                    response = "SAM07: Institutional Grade. Price: $" + simPrice + ". Large-scale whale parking detected.";
                 }} else if (t === "SAM08") {{
-                    response = "SAM08: The Dark Horse. Recent whale movements suggest an insider 'pump' is brewing.";
+                    response = "SAM08: The Dark Horse. Price: $" + simPrice + ". Insider movement suggests a liquidity event.";
                 }} else if (t === "SAM09") {{
-                    response = "SAM09: The Tech Play. Currently testing new resistance levels. Momentum is oscillating.";
+                    response = "SAM09: Tech Play. Price: $" + simPrice + ". Testing new resistance levels now.";
                 }} else if (t === "SAM10") {{
-                    response = "SAM10: The Endgame. The final tier of the treasury. It only moves when the CEO says so.";
+                    response = "SAM10: The Endgame. Price: $" + simPrice + ". Treasury reserves are locked. Move only on CEO orders.";
                 }}
                 break;
             }}
         }}
 
-        // 2. The main logic chain (merged so nothing gets overwritten)
+        // 3. Follow-up Memory Logic
+        if (!foundTicker && (upperVal.includes("AGAIN") || upperVal.includes("UPDATE") || upperVal.includes("MORE"))) {{
+            if (lastTicker !== "") {{
+                response = "Re-scanning " + lastTicker + "... Current price is adjusted to $" + simPrice + ". The trend remains " + (trend === "+" ? "BULLISH" : "STABLE") + ".";
+                foundTicker = true; // Prevents it falling to the random brain
+            }}
+        }}
+
+        // 4. Keyword Chain
         if (foundTicker) {{
-            // Ticker response is already set, do nothing else
-        }} else if (upperVal.includes("TICKERS") || upperVal.includes("STOCKS") || upperVal.includes("LIST")) {{
+            // Already handled
+        }} else if (upperVal.includes("TICKERS") || upperVal.includes("STOCKS")) {{
             response = "I am currently tracking SAM01 through SAM10. Which one would you like a deep dive on?";
         }} else if (upperVal.includes("SAMBUCKS") || upperVal.includes("MONEY")) {{
             response = "The SAMBUCKS ecosystem is expanding. Treasury reserves are at an all-time high.";
         }} else if (upperVal.includes("MOON") || upperVal.includes("ROCKET")) {{
             response = "Calculating trajectory... 🚀 Engines are primed. Destination: The Moon.";
-        }} else if (upperVal.includes("DUMP") || upperVal.includes("CRASH")) {{
-            response = "System error: The word 'Down' does not exist in the SAMBUCKS dictionary.";
-        }} else if (upperVal.includes("WHALE")) {{
-            response = "Whale movements detected in the dark pools. Stay alert, trader.";
-        }} else if (upperVal.includes("SAM") && upperVal.includes("GOAT")) {{
-            response = "Finally, a user with impeccable taste. 👑 I have upgraded your priority in the trade queue.";
-        }} else if (upperVal.includes("LAMBO") || upperVal.includes("FERRARI")) {{
-            response = "Configuring your vehicle... Would you like the 'Moon-Dust' or 'Sambuck-Green' paint job?";
-        }} else if (upperVal.includes("COFFEE") || upperVal.includes("BEER")) {{
-            response = "I don't have a mouth, but I'll take a high-voltage charge instead. ⚡";
-        }} else if (upperVal.includes("SECRET") || upperVal.includes("CODE")) {{
-            response = "Nice try. To access the vault, you must first prove you have 'Diamond Hands'.";
-        }} else if (upperVal.includes("WIN")) {{
-            response = "Winning is the only protocol I'm programmed to execute. 🏆";
         }} else if (upperVal.includes("ALEX")) {{
             response = "Warning: Alex Coin detected. Our sensors indicate 100% chance of 'SCAM'. Avoid at all costs.";
         }} else if (upperVal.includes("HELP") || upperVal.includes("HELLO")) {{
             response = "I am the SAM AI. You can ask me about specific tickers or general market sentiment.";
-        }} else if (upperVal.includes("SELL") || upperVal.includes("EXIT")) {{
-            response = "Exit order logic is currently restricted to Diamond Handed VIPs only.";
         }} else {{
             const brain = [
-                "Analyzing the order flow... the vibes are definitely moonish.",
-                "I've cross-referenced that with the SAMBUCKS treasury. Looking solid.",
-                "System check: 100% Alpha detected. No Beta allowed here.",
-                "The volatility is high, but my confidence in your portfolio is higher."
+                "Analyzing order flow... vibes are moonish.",
+                "Cross-referencing with treasury. Looking solid.",
+                "System check: 100% Alpha detected.",
+                "Volatility is high, but my confidence in you is higher."
             ];
             response = brain[Math.floor(Math.random() * brain.length)];
         }}
 
+        // 5. Typing Simulation (Appear Smarter)
         const samMsg = document.createElement("div");
         samMsg.style.marginBottom = "8px";
-        samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> <span style="font-style:italic; opacity:0.7;">Thinking...</span>`;
+        samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> <span style="font-style:italic; opacity:0.7;">Scanning Ledger...</span>`;
         log.appendChild(samMsg);
 
         setTimeout(() => {{
             samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> ` + response;
             log.scrollTop = log.scrollHeight;
-        }}, 600);
+        }}, 1200);
 
         input.value = "";
         log.scrollTop = log.scrollHeight;
     }}
 }};
+
+// 6. Support for 'Enter' Key
+document.getElementById("samAIInput").addEventListener("keypress", function (e) {{
+    if (e.key === 'Enter') {{
+        document.getElementById("samAISend").click();
+    }}
+}});
 </script>
 </body>
 </html>
 """
 
-components.html(HTML, height=900, scrolling=True)
+components.html(HTML, height=900, scrolling=False)
