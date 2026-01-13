@@ -863,6 +863,28 @@ SAM_AI_CODE = """
     // hide after 6 seconds
     setTimeout(() => { overlay.style.display = "none"; }, 6000);
   }
+  // --- NEW: handle user input ---
+const samInput = document.getElementById("samAIInput");
+const samSend = document.getElementById("samAISend");
+
+samSend.addEventListener("click", () => {
+    const userMsg = samInput.value.trim();
+    if (!userMsg) return;
+
+    // simple "AI response" logic: echo + random tip
+    const randomTip = samAIMessages[Math.floor(Math.random() * samAIMessages.length)];
+    const overlay = document.getElementById("samAIOverlay");
+    const text = document.getElementById("samAIText");
+
+    text.innerHTML = `<b>You:</b> ${userMsg}<br><b>SAM AI:</b> ${randomTip}`;
+    overlay.style.display = "block";
+
+    // clear input
+    samInput.value = "";
+
+    // hide after 6 seconds
+    setTimeout(() => { overlay.style.display = "none"; }, 6000);
+});
 
   function closeSamAI() {
     document.getElementById("samAIOverlay").style.display = "none";
