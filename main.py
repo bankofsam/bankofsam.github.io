@@ -718,6 +718,14 @@ function closeSamAI() {{
 }}
 
 setTimeout(showSamAI, 6000);
+document.getElementById("samAISend").onclick = function() {{
+  const input = document.getElementById("samAIInput");
+  const text = document.getElementById("samAIText");
+  if (input.value.trim() !== "") {{
+    text.innerHTML = "<b>SAM AI:</b> I'm analyzing your request regarding '" + input.value + "'... looks green!";
+    input.value = "";
+  }}
+}};
 </script>
 </body>
 </html>
