@@ -699,7 +699,7 @@ setTimeout(showRandomAlert, 4000);
 </html>
 """
 
-components.html(HTML, height=1200, scrolling=True)
+components.html(HTML, height=900, scrolling=True)
 # --- STEP 4: ERROR-PROOF CENTERED POP-UP ---
 # This creates a separate 'layer' for the popup so it doesn't mess with the main site layout.
 POPUP_CODE = """
