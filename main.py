@@ -678,75 +678,6 @@ function closeAlert() {{
 // Wait 4 seconds after page load, then show the alert
 setTimeout(showRandomAlert, 4000);
 </script>
-<style>
-  /* SAM AI bubble style */
-  #samAIOverlay {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 280px;
-    max-width: 90%;
-    background: linear-gradient(135deg, #0b2f1a, #06140b);
-    border: 3px solid #b4ff6b;
-    color: #eaf6ec;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.7);
-    font-family: Verdana, sans-serif;
-    z-index: 1000000;
-    display: none;
-    animation: slideInBubble 0.6s ease-out;
-  }
-
-  #samAIHeader {
-    font-weight: bold;
-    margin-bottom: 6px;
-  }
-
-  #samAIClose {
-    position: absolute;
-    top: 6px;
-    right: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    color: var(--accent);
-  }
-</style>
-
-<div id="samAIOverlay">
-  <div id="samAIClose" onclick="closeSamAI()">×</div>
-  <div id="samAIHeader">SAM AI Assistant</div>
-  <div id="samAIText">Hello! I am monitoring your SAMBUCKS portfolio… all looks very green!</div>
-</div>
-
-<script>
-  const samAIMessages = [
-    "🚀 SAM01 is mooning! Consider checking your buy orders.",
-    "📈 Your watchlist is looking very green. Nice moves!",
-    "🤖 SAM AI detects unusual activity on SAM03. Stay alert.",
-    "💎 SAM AI says: Diamond hands all the way!",
-    "⚠️ SAM02 volatility alert: keep an eye on your positions."
-  ];
-
-  function showSamAI() {
-    const overlay = document.getElementById("samAIOverlay");
-    const text = document.getElementById("samAIText");
-    const msg = samAIMessages[Math.floor(Math.random() * samAIMessages.length)];
-    text.innerHTML = msg;
-    overlay.style.display = "block";
-
-    // hide after 6 seconds
-    setTimeout(() => { overlay.style.display = "none"; }, 6000);
-  }
-
-  function closeSamAI() {
-    document.getElementById("samAIOverlay").style.display = "none";
-  }
-
-  // Show SAM AI 6 seconds after page load
-  setTimeout(showSamAI, 6000);
-</script>
-
 </body>
 </html>
 """
@@ -829,5 +760,76 @@ POPUP_CODE = """
 """
 
 # This line injects the popup logic into your app
+# --- STEP 5: SAM AI FAKE ASSISTANT ---
+SAM_AI_CODE = """
+<style>
+  /* SAM AI bubble style */
+  #samAIOverlay {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 280px;
+    max-width: 90%;
+    background: linear-gradient(135deg, #0b2f1a, #06140b);
+    border: 3px solid #b4ff6b;
+    color: #eaf6ec;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+    font-family: Verdana, sans-serif;
+    z-index: 1000000;
+    display: none;
+    animation: slideInBubble 0.6s ease-out;
+  }
+
+  #samAIHeader {
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+
+  #samAIClose {
+    position: absolute;
+    top: 6px;
+    right: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--accent);
+  }
+</style>
+
+<div id="samAIOverlay">
+  <div id="samAIClose" onclick="closeSamAI()">×</div>
+  <div id="samAIHeader">SAM AI Assistant</div>
+  <div id="samAIText">Hello! I am monitoring your SAMBUCKS portfolio… all looks very green!</div>
+</div>
+
+<script>
+  const samAIMessages = [
+    "🚀 SAM01 is mooning! Consider checking your buy orders.",
+    "📈 Your watchlist is looking very green. Nice moves!",
+    "🤖 SAM AI detects unusual activity on SAM03. Stay alert.",
+    "💎 SAM AI says: Diamond hands all the way!",
+    "⚠️ SAM02 volatility alert: keep an eye on your positions."
+  ];
+
+  function showSamAI() {
+    const overlay = document.getElementById("samAIOverlay");
+    const text = document.getElementById("samAIText");
+    const msg = samAIMessages[Math.floor(Math.random() * samAIMessages.length)];
+    text.innerHTML = msg;
+    overlay.style.display = "block";
+
+    // hide after 6 seconds
+    setTimeout(() => { overlay.style.display = "none"; }, 6000);
+  }
+
+  function closeSamAI() {
+    document.getElementById("samAIOverlay").style.display = "none";
+  }
+
+  // Show SAM AI 6 seconds after page load
+  setTimeout(showSamAI, 6000);
+</script>
 """
 components.html(POPUP_CODE, height=0)
+components.html(SAM_AI_CODE, height=0)
