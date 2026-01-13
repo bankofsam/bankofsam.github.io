@@ -678,75 +678,116 @@ function closeAlert() {{
 // Wait 4 seconds after page load, then show the alert
 setTimeout(showRandomAlert, 4000);
 </script>
+
+<!-- SAM AI Chatbot Widget -->
 <style>
-  /* SAM AI bubble style */
-  #samAIOverlay {
+  #samChatbot {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 280px;
+    width: 300px;
     max-width: 90%;
+    font-family: Verdana, sans-serif;
+    z-index: 1000000;
+  }
+
+  #samChatHeader {
     background: linear-gradient(135deg, #0b2f1a, #06140b);
     border: 3px solid #b4ff6b;
     color: #eaf6ec;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.7);
-    font-family: Verdana, sans-serif;
-    z-index: 1000000;
-    display: none;
-    animation: slideInBubble 0.6s ease-out;
-  }
-
-  #samAIHeader {
+    padding: 10px;
+    border-radius: 12px 12px 0 0;
     font-weight: bold;
-    margin-bottom: 6px;
-  }
-
-  #samAIClose {
-    position: absolute;
-    top: 6px;
-    right: 8px;
     cursor: pointer;
-    font-weight: bold;
-    color: var(--accent);
+    text-align: center;
+  }
+
+  #samChatContent {
+    display: none;
+    background: linear-gradient(135deg, #06140b, #0b2f1a);
+    border: 3px solid #b4ff6b;
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    color: #eaf6ec;
+    font-size: 13px;
+  }
+
+  #samChatContent .message {
+    margin-bottom: 8px;
+    padding: 6px 8px;
+    background: rgba(180,255,107,0.1);
+    border-radius: 6px;
+  }
+
+  #samChatInput {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 8px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #b4ff6b;
+    background: #06140b;
+    color: #eaf6ec;
   }
 </style>
 
-<div id="samAIOverlay">
-  <div id="samAIClose" onclick="closeSamAI()">×</div>
-  <div id="samAIHeader">SAM AI Assistant</div>
-  <div id="samAIText">Hello! I am monitoring your SAMBUCKS portfolio… all looks very green!</div>
+<div id="samChatbot">
+  <div id="samChatHeader">💬 SAM AI</div>
+  <div id="samChatContent">
+    <div id="samChatMessages">
+      <div class="message">Hello! Can I help you with your SAMBUCKS portfolio today? 🚀</div>
+    </div>
+    <input type="text" id="samChatInput" placeholder="Type a message..." />
+  </div>
 </div>
 
 <script>
-  const samAIMessages = [
+  const samMessages = [
     "🚀 SAM01 is mooning! Consider checking your buy orders.",
     "📈 Your watchlist is looking very green. Nice moves!",
     "🤖 SAM AI detects unusual activity on SAM03. Stay alert.",
-    "💎 SAM AI says: Diamond hands all the way!",
+    "💎 Diamond hands all the way!",
     "⚠️ SAM02 volatility alert: keep an eye on your positions."
   ];
 
-  function showSamAI() {
-    const overlay = document.getElementById("samAIOverlay");
-    const text = document.getElementById("samAIText");
-    const msg = samAIMessages[Math.floor(Math.random() * samAIMessages.length)];
-    text.innerHTML = msg;
-    overlay.style.display = "block";
+  const chatHeader = document.getElementById("samChatHeader");
+  const chatContent = document.getElementById("samChatContent");
+  const chatMessages = document.getElementById("samChatMessages");
+  const chatInput = document.getElementById("samChatInput");
 
-    // hide after 6 seconds
-    setTimeout(() => { overlay.style.display = "none"; }, 6000);
-  }
+  // Toggle chat open/closed
+  chatHeader.onclick = () => {
+    if (chatContent.style.display === "none") {
+      chatContent.style.display = "block";
+    } else {
+      chatContent.style.display = "none";
+    }
+  };
 
-  function closeSamAI() {
-    document.getElementById("samAIOverlay").style.display = "none";
-  }
+  // User types a message
+  chatInput.addEventListener("keypress", function(e) {
+    if (e.key === "Enter" && chatInput.value.trim() !== "") {
+      const userMsg = document.createElement("div");
+      userMsg.className = "message";
+      userMsg.textContent = "You: " + chatInput.value;
+      chatMessages.appendChild(userMsg);
+      chatInput.value = "";
 
-  // Show SAM AI 6 seconds after page load
-  setTimeout(showSamAI, 6000);
+      // SAM AI responds
+      const botMsg = document.createElement("div");
+      botMsg.className = "message";
+      const randomReply = samMessages[Math.floor(Math.random() * samMessages.length)];
+      botMsg.textContent = "SAM AI: " + randomReply;
+      chatMessages.appendChild(botMsg);
+
+      // Scroll to bottom
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+  });
 </script>
-
 </body>
 </html>
 """
