@@ -729,6 +729,40 @@ document.getElementById("samAISend").onclick = function() {{
     input.value = "";
   }}
 }};
+document.getElementById("samAISend").onclick = function() {{
+    const input = document.getElementById("samAIInput");
+    const log = document.getElementById("samChatLog");
+    const introText = document.getElementById("samAIText");
+
+    if (input.value.trim() !== "") {{
+        // 1. Show the log area if it was hidden
+        log.style.display = "block";
+        introText.style.display = "none"; // Hide the "Analyzing..." text to save space
+
+        // 2. Add the User's message to the log
+        const userMsg = document.createElement("div");
+        userMsg.innerHTML = `<b style="color:#b4ff6b;">YOU:</b> ` + input.value;
+        userMsg.style.marginBottom = "5px";
+        log.appendChild(userMsg);
+
+        // 3. Add a "fake" response from Sam AI
+        const samMsg = document.createElement("div");
+        samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> Acknowledged. Processing request for "${{input.value}}"... status: MOONISH.`;
+        samMsg.style.marginBottom = "8px";
+        log.appendChild(samMsg);
+
+        // 4. Clear the input and scroll to the bottom of the log
+        input.value = "";
+        log.scrollTop = log.scrollHeight;
+    }}
+}};
+
+// Also allow pressing "Enter" to send
+document.getElementById("samAIInput").addEventListener("keypress", function (e) {{
+    if (e.key === 'Enter') {{
+        document.getElementById("samAISend").click();
+    }}
+}});
 </script>
 </body>
 </html>
