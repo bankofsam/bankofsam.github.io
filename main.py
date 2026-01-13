@@ -519,10 +519,13 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
   <div id="samAIOverlay">
   <div style="float:right; cursor:pointer;" onclick="closeSamAI()">×</div>
   <div style="font-weight:bold; margin-bottom:5px; color:#b4ff6b;">SAM AI Assistant</div>
-  <div id="samAIText">Hello! I am monitoring your SAMBUCKS portfolio… all looks very green!</div>
-  <input type="text" id="samAIInput" placeholder="Type a message..." style="width:100%; margin-top:8px; padding:6px; border-radius:6px; border:1px solid #b4ff6b; background:#06140b; color:#eaf6ec;" />
-  <button id="samAISend" style="margin-top:6px; padding:6px 12px; background:#b4ff6b; color:#06140b; border:none; border-radius:6px; cursor:pointer;">Send</button>
-</div>
+ <div id="samAIText" style="font-size: 13px; margin-bottom: 8px;">Hello! I am monitoring your SAMBUCKS portfolio...</div>
+  
+  <div id="samChatLog" style="height: 100px; overflow-y: auto; background: rgba(0,0,0,0.3); border-radius: 4px; padding: 5px; font-size: 11px; color: #b6d6bf; margin-bottom: 8px; display: none; border: 1px solid rgba(255,255,255,0.1);">
+  </div>
+
+  <input type="text" id="samAIInput" placeholder="Type a message..." style="width:100%; padding:6px; border-radius:6px; border:1px solid #b4ff6b; background:#06140b; color:#eaf6ec;" />
+  <button id="samAISend" style="margin-top:6px; width: 100%; padding:6px; background:#b4ff6b; color:#06140b; border:none; border-radius:6px; cursor:pointer; font-weight:bold;">Send</button>
 
 <script>
 // payload from Python
