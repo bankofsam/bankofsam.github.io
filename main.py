@@ -738,16 +738,16 @@ document.getElementById("samAISend").onclick = function() {{
         log.appendChild(userMsg);
 
         // --- THE BRAIN WITH KEYWORDS ---
+      // --- THE BRAIN WITH KEYWORDS ---
         let response = "";
+        let foundTicker = false;
 
         // 1. Check for specific tickers SAM01 through SAM10
-        let foundTicker = false;
         for (let i = 1; i <= 10; i++) {{
             let tickerNum = (i < 10 ? "0" + i : i);
             let t = "SAM" + tickerNum; 
             if (upperVal.includes(t)) {{
                 foundTicker = true;
-                
                 if (t === "SAM01") {{
                     response = "SAM01: The Flagship. Currently undergoing a massive accumulation phase. Expect a breakout.";
                 }} else if (t === "SAM02") {{
@@ -773,17 +773,11 @@ document.getElementById("samAISend").onclick = function() {{
             }}
         }}
 
-        // 2. If it wasn't a specific ticker, check the other keywords
+        // 2. The main logic chain (merged so nothing gets overwritten)
         if (foundTicker) {{
-            // Already set response above
+            // Ticker response is already set, do nothing else
         }} else if (upperVal.includes("TICKERS") || upperVal.includes("STOCKS") || upperVal.includes("LIST")) {{
             response = "I am currently tracking SAM01 through SAM10. Which one would you like a deep dive on?";
-        }} else if (upperVal.includes("SAMBUCKS") || upperVal.includes("MONEY")) {{
-            response = "The SAMBUCKS ecosystem is expanding. Treasury reserves are at an all-time high.";
-        }} 
-        
-        if (upperVal.includes("SAM01")) {{
-            response = "SAM01 is our flagship asset. Current volatility is optimal for a long position.";
         }} else if (upperVal.includes("SAMBUCKS") || upperVal.includes("MONEY")) {{
             response = "The SAMBUCKS ecosystem is expanding. Treasury reserves are at an all-time high.";
         }} else if (upperVal.includes("MOON") || upperVal.includes("ROCKET")) {{
@@ -809,7 +803,6 @@ document.getElementById("samAISend").onclick = function() {{
         }} else if (upperVal.includes("SELL") || upperVal.includes("EXIT")) {{
             response = "Exit order logic is currently restricted to Diamond Handed VIPs only.";
         }} else {{
-            // If no keywords match, pick a random one
             const brain = [
                 "Analyzing the order flow... the vibes are definitely moonish.",
                 "I've cross-referenced that with the SAMBUCKS treasury. Looking solid.",
