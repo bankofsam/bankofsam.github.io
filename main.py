@@ -870,5 +870,4 @@ POPUP_CODE = """
 """
 
 # This line injects the popup logic into your app
-"""
 components.html(POPUP_CODE, height=0)
