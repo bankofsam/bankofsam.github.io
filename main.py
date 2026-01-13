@@ -759,13 +759,13 @@ setTimeout(showRandomAlert, 4000);
   const chatInput = document.getElementById("samChatInput");
 
   // Toggle chat open/closed
-  chatHeader.onclick = () => {
-    if (chatContent.style.display === "none") {
+  chatHeader.onclick = () => {{
+    if (chatContent.style.display === "none") {{
       chatContent.style.display = "block";
-    } else {
+    }} else {{
       chatContent.style.display = "none";
-    }
-  };
+    }}
+}};
 
   // User types a message
   chatInput.addEventListener("keypress", function(e) {
