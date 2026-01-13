@@ -722,42 +722,53 @@ function closeSamAI() {{
 
 setTimeout(showSamAI, 6000);
 document.getElementById("samAISend").onclick = function() {{
-  const input = document.getElementById("samAIInput");
-  const text = document.getElementById("samAIText");
-  if (input.value.trim() !== "") {{
-    text.innerHTML = "<b>SAM AI:</b> I'm analyzing your request regarding '" + input.value + "'... looks green!";
-    input.value = "";
-  }}
-}};
-document.getElementById("samAISend").onclick = function() {{
     const input = document.getElementById("samAIInput");
     const log = document.getElementById("samChatLog");
     const introText = document.getElementById("samAIText");
+    const userVal = input.value.trim();
 
-    if (input.value.trim() !== "") {{
-        // 1. Show the log area if it was hidden
+    if (userVal !== "") {{
         log.style.display = "block";
-        introText.style.display = "none"; // Hide the "Analyzing..." text to save space
+        introText.style.display = "none";
 
-        // 2. Add the User's message to the log
+        // 1. Add your message to the log
         const userMsg = document.createElement("div");
-        userMsg.innerHTML = `<b style="color:#b4ff6b;">YOU:</b> ` + input.value;
+        userMsg.innerHTML = `<b style="color:#b4ff6b;">YOU:</b> ` + userVal;
         userMsg.style.marginBottom = "5px";
         log.appendChild(userMsg);
 
-        // 3. Add a "fake" response from Sam AI
+        // 2. The Random Brain
+        const brain = [
+            "Analyzing the order flow... the vibes are definitely moonish.",
+            "I've cross-referenced that with the SAMBUCKS treasury. Looking solid.",
+            "Interesting take. My algorithms suggest holding until the green candle peaks.",
+            "Acknowledged. I'll keep an eye on the spreads for you.",
+            "System check: 100% Alpha detected. No Beta allowed here.",
+            "Processing... wait, did you see that spike on SAM01? Bullish.",
+            "Your request has been logged. Higher-ups in the SAM network are pleased.",
+            "The volatility is high, but my confidence in your portfolio is higher."
+        ];
+        
+        const randomReply = brain[Math.floor(Math.random() * brain.length)];
+
+        // 3. Create the AI response line
         const samMsg = document.createElement("div");
-        samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> Acknowledged. Processing request for "${{input.value}}"... status: MOONISH.`;
         samMsg.style.marginBottom = "8px";
+        samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> <span style="font-style:italic; opacity:0.7;">Thinking...</span>`;
         log.appendChild(samMsg);
 
-        // 4. Clear the input and scroll to the bottom of the log
+        // 4. Show the random reply after a 0.6s delay
+        setTimeout(() => {{
+            samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> ` + randomReply;
+            log.scrollTop = log.scrollHeight;
+        }}, 600);
+
         input.value = "";
         log.scrollTop = log.scrollHeight;
     }}
 }};
 
-// Also allow pressing "Enter" to send
+// This line allows the 'Enter' key to work
 document.getElementById("samAIInput").addEventListener("keypress", function (e) {{
     if (e.key === 'Enter') {{
         document.getElementById("samAISend").click();
