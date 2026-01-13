@@ -751,7 +751,7 @@ document.getElementById("samAISend").onclick = function() {{
         }} else if (upperVal.includes("WHALE")) {{
             response = "Whale movements detected in the dark pools. Stay alert, trader.";
         }} else if (upperVal.includes("ALEX")) {{
-            response = "Warning: Alex Coin detected. Our sensors indicate 100% chance of 'RUG'. Avoid at all costs.";
+            response = "Warning: Alex Coin detected. Our sensors indicate 100% chance of 'SCAM'. Avoid at all costs.";
         }} else if (upperVal.includes("HELP") || upperVal.includes("HELLO")) {{
             response = "I am the SAM AI. You can ask me about specific tickers or general market sentiment.";
         }} else if (upperVal.includes("SELL") || upperVal.includes("EXIT")) {{
