@@ -820,9 +820,10 @@ document.getElementById("samAISend").onclick = function() {{
             log.scrollTop = log.scrollHeight;
         }}, 1000);
 
-        input.value = "";
+     input.value = "";
     }}
-}};
+}}; // This closes the onclick function
+
 // 6. Support for 'Enter' Key
 document.getElementById("samAIInput").addEventListener("keypress", function (e) {{
     if (e.key === 'Enter') {{
