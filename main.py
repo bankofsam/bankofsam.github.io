@@ -489,23 +489,6 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
 
     <hr style="border-color: rgba(255,255,255,0.08)" />
 
-    <div style="margin-bottom:10px; font-weight:700;">
-      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
-      Savings goals now effortless
-    </div>
-    <div style="font-size:12px; color:var(--muted);">
-      Auto-roundups spark micro-wealth boom
-    </div>
-
-    <hr style="border-color: rgba(255,255,255,0.08)" />
-
-    <div style="margin-bottom:10px; font-weight:700;">
-      <img src="{payload['logo']}" width="14" style="vertical-align:middle; margin-right:4px;">
-      Branch plants a rooftop garden
-    </div>
-    <div style="font-size:12px; color:var(--muted);">
-      Community events drive foot traffic
-    </div>
 
     <hr style="border-color: rgba(255,255,255,0.08)" />
 
