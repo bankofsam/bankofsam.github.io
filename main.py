@@ -722,7 +722,8 @@ function closeSamAI() {{
 
 setTimeout(showSamAI, 6000);
 // --- NEW & IMPROVED BRAIN WITH MEMORY AND PRICE GEN ---
-let lastTicker = ""; // Memory: Stores the last ticker you talked about
+// 1. Move the memory variable outside the click function so it stays saved!
+if (typeof lastTicker === 'undefined') {{ var lastTicker = ""; }}
 
 document.getElementById("samAISend").onclick = function() {{
     const input = document.getElementById("samAIInput");
@@ -743,76 +744,59 @@ document.getElementById("samAISend").onclick = function() {{
         let response = "";
         let foundTicker = false;
 
-        // 1. Dynamic Price/Change Generator for "Smart" feel
+        // 2. Generate the Dynamic Price right now so it's ready for any response
         let simPrice = (Math.random() * 240 + 10).toFixed(2);
         let simChg = (Math.random() * 4).toFixed(2);
         let trend = Math.random() > 0.5 ? "+" : "-";
 
-        // 2. Check for Tickers SAM01-SAM10
-        for (let i = 1; i <= 10; i++) {{
-            let tickerNum = (i < 10 ? "0" + i : i);
-            let t = "SAM" + tickerNum; 
-            if (upperVal.includes(t)) {{
-                foundTicker = true;
-                lastTicker = t; // Memory set!
-                
-                if (t === "SAM01") {{
-                    response = "SAM01: The Flagship. Price: $" + simPrice + " (" + trend + simChg + "%). Accumulation phase detected. Expect a breakout.";
-                }} else if (t === "SAM02") {{
-                    response = "SAM02: Sleeper hit. Price: $" + simPrice + ". Buy walls are stacking in the dark pools.";
-                }} else if (t === "SAM03") {{
-                    response = "SAM03: 10/10 Risk Rating. Price: $" + simPrice + ". This is for diamond-handed degens only.";
-                }} else if (t === "SAM04") {{
-                    response = "SAM04: The Oracle. Price: $" + simPrice + ". My sensors indicate this is front-running the index.";
-                }} else if (t === "SAM05") {{
-                    response = "SAM05: The Pivot. Price: $" + simPrice + ". Rotation from SAM02 detected.";
-                }} else if (t === "SAM06") {{
-                    response = "SAM06: The Hedge. Price: $" + simPrice + ". Safety play confirmed for current market volatility.";
-                }} else if (t === "SAM07") {{
-                    response = "SAM07: Institutional Grade. Price: $" + simPrice + ". Large-scale whale parking detected.";
-                }} else if (t === "SAM08") {{
-                    response = "SAM08: The Dark Horse. Price: $" + simPrice + ". Insider movement suggests a liquidity event.";
-                }} else if (t === "SAM09") {{
-                    response = "SAM09: Tech Play. Price: $" + simPrice + ". Testing new resistance levels now.";
-                }} else if (t === "SAM10") {{
-                    response = "SAM10: The Endgame. Price: $" + simPrice + ". Treasury reserves are locked. Move only on CEO orders.";
-                }}
-                break;
-            }}
-        }}
-
-        // 3. Follow-up Memory Logic
-        if (!foundTicker && (upperVal.includes("AGAIN") || upperVal.includes("UPDATE") || upperVal.includes("MORE"))) {{
+        // 3. CHECK FOR "UPDATE" FIRST (Memory Check)
+        if (upperVal.includes("UPDATE") || upperVal.includes("AGAIN") || upperVal.includes("MORE")) {{
             if (lastTicker !== "") {{
-                response = "Re-scanning " + lastTicker + "... Current price is adjusted to $" + simPrice + ". The trend remains " + (trend === "+" ? "BULLISH" : "STABLE") + ".";
-                foundTicker = true; // Prevents it falling to the random brain
+                response = "Re-scanning " + lastTicker + "... Live Price: $" + simPrice + " (" + trend + simChg + "%). The liquidity profile remains consistent.";
+                foundTicker = true;
+            }} else {{
+                response = "I need a ticker symbol (SAM01-SAM10) to provide a deep dive update.";
+                foundTicker = true;
             }}
         }}
 
-        // 4. Keyword Chain
-        if (foundTicker) {{
-            // Already handled
-        }} else if (upperVal.includes("TICKERS") || upperVal.includes("STOCKS")) {{
-            response = "I am currently tracking SAM01 through SAM10. Which one would you like a deep dive on?";
-        }} else if (upperVal.includes("SAMBUCKS") || upperVal.includes("MONEY")) {{
-            response = "The SAMBUCKS ecosystem is expanding. Treasury reserves are at an all-time high.";
-        }} else if (upperVal.includes("MOON") || upperVal.includes("ROCKET")) {{
-            response = "Calculating trajectory... 🚀 Engines are primed. Destination: The Moon.";
-        }} else if (upperVal.includes("ALEX")) {{
-            response = "Warning: Alex Coin detected. Our sensors indicate 100% chance of 'SCAM'. Avoid at all costs.";
-        }} else if (upperVal.includes("HELP") || upperVal.includes("HELLO")) {{
-            response = "I am the SAM AI. You can ask me about specific tickers or general market sentiment.";
-        }} else {{
-            const brain = [
-                "Analyzing order flow... vibes are moonish.",
-                "Cross-referencing with treasury. Looking solid.",
-                "System check: 100% Alpha detected.",
-                "Volatility is high, but my confidence in you is higher."
-            ];
-            response = brain[Math.floor(Math.random() * brain.length)];
+        // 4. TICKER SEARCH (If not doing an update)
+        if (!foundTicker) {{
+            for (let i = 1; i <= 10; i++) {{
+                let tickerNum = (i < 10 ? "0" + i : i);
+                let t = "SAM" + tickerNum; 
+                if (upperVal.includes(t)) {{
+                    foundTicker = true;
+                    lastTicker = t; // Memory saved for next time!
+                    
+                    if (t === "SAM01") response = "SAM01: Flagship Asset. Price: $" + simPrice + ". Accumulation detected.";
+                    else if (t === "SAM02") response = "SAM02: Sleeper hit. Price: $" + simPrice + ". Hidden buy walls detected.";
+                    else if (t === "SAM03") response = "SAM03: High Risk. Price: $" + simPrice + ". Extreme volatility warning.";
+                    else if (t === "SAM04") response = "SAM04: The Oracle. Price: $" + simPrice + ". Historically front-runs the index.";
+                    else if (t === "SAM05") response = "SAM05: The Pivot. Price: $" + simPrice + ". Rotation from SAM02 confirmed.";
+                    else if (t === "SAM06") response = "SAM06: The Hedge. Price: $" + simPrice + ". Safety play status: Active.";
+                    else if (t === "SAM07") response = "SAM07: Institutional. Price: $" + simPrice + ". Whale parking confirmed.";
+                    else if (t === "SAM08") response = "SAM08: Dark Horse. Price: $" + simPrice + ". Insider liquidity event brewing.";
+                    else if (t === "SAM09") response = "SAM09: Tech Play. Price: $" + simPrice + ". Oscillating near resistance.";
+                    else if (t === "SAM10") response = "SAM10: Endgame. Price: $" + simPrice + ". Treasury reserves locked.";
+                    break;
+                }}
+            }}
         }}
 
-        // 5. Typing Simulation (Appear Smarter)
+        // 5. KEYWORD FALLBACKS
+        if (!foundTicker) {{
+            if (upperVal.includes("TICKERS") || upperVal.includes("STOCKS")) {{
+                response = "I am tracking SAM01 through SAM10. Which one would you like a deep dive on?";
+            }} else if (upperVal.includes("ALEX")) {{
+                response = "Warning: Alex Coin detected. Our sensors indicate 100% chance of 'SCAM'.";
+            }} else {{
+                const brain = ["Analyzing order flow...", "System check: 100% Alpha detected.", "Vibes are moonish."];
+                response = brain[Math.floor(Math.random() * brain.length)];
+            }}
+        }}
+
+        // DISPLAY WITH TYPING DELAY
         const samMsg = document.createElement("div");
         samMsg.style.marginBottom = "8px";
         samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> <span style="font-style:italic; opacity:0.7;">Scanning Ledger...</span>`;
@@ -821,13 +805,11 @@ document.getElementById("samAISend").onclick = function() {{
         setTimeout(() => {{
             samMsg.innerHTML = `<b style="color:#19e57a;">SAM AI:</b> ` + response;
             log.scrollTop = log.scrollHeight;
-        }}, 1200);
+        }}, 1000);
 
         input.value = "";
-        log.scrollTop = log.scrollHeight;
     }}
 }};
-
 // 6. Support for 'Enter' Key
 document.getElementById("samAIInput").addEventListener("keypress", function (e) {{
     if (e.key === 'Enter') {{
