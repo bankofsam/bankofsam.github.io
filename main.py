@@ -279,7 +279,7 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
 /* CENTERED ALERT BOX */
 .alert-popup {{
   position: fixed;
-  top: 40%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 520px;
