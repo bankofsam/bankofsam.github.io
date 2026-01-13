@@ -521,6 +521,7 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
   <div style="font-weight:bold; margin-bottom:5px; color:#b4ff6b;">SAM AI Assistant</div>
 <div id="samAIText">Hello! I am monitoring your SAMBUCKS portfolio… all looks very green!</div>
 <input type="text" id="samAIInput" placeholder="Type a message..." style="width:100%; margin-top:8px; padding:6px; border-radius:6px; border:1px solid #b4ff6b; background:#06140b; color:#eaf6ec;" />
+<button id="samAISend" style="margin-top:6px; padding:6px 12px; background:#b4ff6b; color:#06140b; border:none; border-radius:6px; cursor:pointer;">Send</button><input type="text" id="samAIInput" placeholder="Type a message..." style="width:100%; margin-top:8px; padding:6px; border-radius:6px; border:1px solid #b4ff6b; background:#06140b; color:#eaf6ec;" />
 <button id="samAISend" style="margin-top:6px; padding:6px 12px; background:#b4ff6b; color:#06140b; border:none; border-radius:6px; cursor:pointer;">Send</button>
 </div>
 
