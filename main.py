@@ -264,21 +264,47 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
   filter: drop-shadow(0 0 4px rgba(180,255,107,0.6));
   animation: pl 2.2s ease-in-out infinite;
 }}
+/* FULLSCREEN ALERT OVERLAY */
+.alert-overlay {{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(6, 20, 11, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: none;
+}}
+/* CENTERED ALERT BOX */
 .alert-popup {{
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 420px;
+  max-width: 90%;
   background: linear-gradient(135deg, #0b2f1a, #06140b);
-  border: 2px solid var(--accent);
+  border: 3px solid var(--accent);
   color: var(--text);
-  padding: 18px;
-  border-radius: 8px;
-  box-shadow: 0 15px 45px rgba(0,0,0,0.8);
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.9);
   z-index: 10001;
   display: none;
-  font-size: 14px;
-  animation: slideInBubble 0.6s ease-out;
+  font-size: 15px;
+  text-align: center;
+}}
+
+/* CLOSE BUTTON */
+.alert-close {{
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: bold;
 }}
 .close-alert {{
   position: absolute;
@@ -301,10 +327,15 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
 </style>
 </head>
 <body>
+<div id="alertOverlay" class="alert-overlay"></div>
+
 <div id="alertBubble" class="alert-popup">
-    <span class="close-alert" onclick="closeAlert()">×</span>
-    <div id="alertText"><b>MARKET ALERT:</b> Connecting to secure server...</div>
+  <div class="alert-close" onclick="closeAlert()">×</div>
+  <div id="alertText">
+    <b>MARKET ALERT</b><br><br>
+    Connecting to secure SAMBUCKS server...
   </div>
+</div>
   <div class="topbar">
     <div class="wrap">
       <div class="brand">
@@ -646,14 +677,19 @@ const alertOptions = [
 
 function showRandomAlert() {{
   const bubble = document.getElementById("alertBubble");
+  const overlay = document.getElementById("alertOverlay");
   const text = document.getElementById("alertText");
+
   const randomMsg = alertOptions[Math.floor(Math.random() * alertOptions.length)];
   text.innerHTML = randomMsg;
+
+  overlay.style.display = "block";
   bubble.style.display = "block";
 }}
 
 function closeAlert() {{
   document.getElementById("alertBubble").style.display = "none";
+  document.getElementById("alertOverlay").style.display = "none";
 }}
 
 // Wait 4 seconds after page load, then show the alert
