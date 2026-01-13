@@ -747,6 +747,29 @@ document.getElementById("samAISend").onclick = function() {{
         }} else if (upperVal.includes("SELL") || upperVal.includes("EXIT")) {{
             response = "Exit order logic is currently restricted to Diamond Handed VIPs only.";
         }} else {{
+        if (upperVal.includes("SAM01")) {
+            response = "SAM01 is our flagship asset. Current volatility is optimal for a long position.";
+        } 
+        // --- NEW KEYWORDS START HERE ---
+        else if (upperVal.includes("SAMBUCKS") || upperVal.includes("MONEY")) {
+            response = "The SAMBUCKS ecosystem is expanding. Treasury reserves are at an all-time high.";
+        } 
+        else if (upperVal.includes("MOON") || upperVal.includes("ROCKET")) {
+            response = "Calculating trajectory... 🚀 Engines are primed. Destination: The Moon.";
+        } 
+        else if (upperVal.includes("DUMP") || upperVal.includes("CRASH")) {
+            response = "System error: The word 'Down' does not exist in the SAMBUCKS dictionary.";
+        } 
+        else if (upperVal.includes("WHALE")) {
+            response = "Whale movements detected in the dark pools. Stay alert, trader.";
+        } 
+        else if (upperVal.includes("ALEX")) {
+            response = "Warning: Alex Coin detected. Our sensors indicate 100% chance of 'RUG'. Avoid at all costs.";
+        }
+        // --- NEW KEYWORDS END HERE ---
+        else if (upperVal.includes("HELP") || upperVal.includes("HELLO")) {
+            response = "I am the SAM AI. You can ask me about specific tickers or general market sentiment.";
+        }
             // If no keywords match, pick a random one like before
             const brain = [
                 "Analyzing the order flow... the vibes are definitely moonish.",
