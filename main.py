@@ -321,7 +321,7 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
 }}
 #samAIOverlay {{
     position: fixed;
-    bottom: 250px;
+    bottom: 200px;
     right: 20px;
     width: 280px;
     background: linear-gradient(135deg, #0b2f1a, #06140b);
