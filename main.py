@@ -746,11 +746,29 @@ document.getElementById("samAISend").onclick = function() {{
             let tickerNum = (i < 10 ? "0" + i : i);
             let t = "SAM" + tickerNum; 
             if (upperVal.includes(t)) {{
-                let vibe = "STABLE";
-                if (Math.random() > 0.5) {{ vibe = "BULLISH"; }}
-                
-                response = "Analysis for " + t + ": Standardizing data... Momentum is currently " + vibe + ". Recommend monitoring the spread.";
                 foundTicker = true;
+                
+                if (t === "SAM01") {{
+                    response = "SAM01: The Flagship. Currently undergoing a massive accumulation phase. Expect a breakout.";
+                }} else if (t === "SAM02") {{
+                    response = "SAM02: The sleeper hit. Low volume but the order book is stacked with hidden buy walls.";
+                }} else if (t === "SAM03") {{
+                    response = "SAM03: High Volatility. Our scanners show a 10/10 risk rating. Not for the faint of heart.";
+                }} else if (t === "SAM04") {{
+                    response = "SAM04: The Oracle. This asset historically front-runs the entire SAMBUCKS index.";
+                }} else if (t === "SAM05") {{
+                    response = "SAM05: The Pivot. We are seeing a rotation out of SAM02 and into SAM05 as we speak.";
+                }} else if (t === "SAM06") {{
+                    response = "SAM06: The Hedge. When the market bleeds, SAM06 stays green. The ultimate safety play.";
+                }} else if (t === "SAM07") {{
+                    response = "SAM07: Institutional Grade. Big money is parked here. Minimum slippage, maximum stability.";
+                }} else if (t === "SAM08") {{
+                    response = "SAM08: The Dark Horse. Recent whale movements suggest an insider 'pump' is brewing.";
+                }} else if (t === "SAM09") {{
+                    response = "SAM09: The Tech Play. Currently testing new resistance levels. Momentum is oscillating.";
+                }} else if (t === "SAM10") {{
+                    response = "SAM10: The Endgame. The final tier of the treasury. It only moves when the CEO says so.";
+                }}
                 break;
             }}
         }}
