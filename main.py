@@ -788,10 +788,23 @@ document.getElementById("samAISend").onclick = function() {{
         if (!foundTicker) {{
             if (upperVal.includes("TICKERS") || upperVal.includes("STOCKS")) {{
                 response = "I am tracking SAM01 through SAM10. Which one would you like a deep dive on?";
+            }} else if (upperVal.includes("GOAT")) {{
+                response = "Correct. SAM is the Greatest of All Time. Portfolio performance proves it.";
+            }} else if (upperVal.includes("SAMBUCKS") || upperVal.includes("MONEY")) {{
+                response = "The SAMBUCKS ecosystem is expanding. Treasury reserves are at an all-time high.";
+            } else if (upperVal.includes("MOON") || upperVal.includes("ROCKET")) {{
+                response = "Calculating trajectory... 🚀 Engines are primed. Destination: The Moon.";
             }} else if (upperVal.includes("ALEX")) {{
                 response = "Warning: Alex Coin detected. Our sensors indicate 100% chance of 'SCAM'.";
-            }} else {{
-                const brain = ["Analyzing order flow...", "System check: 100% Alpha detected.", "Vibes are moonish."];
+            }} else if (upperVal.includes("HELP") || upperVal.includes("HELLO")) {{
+                response = "I am the SAM AI. You can ask me about specific tickers (SAM01-SAM10) or general market sentiment.";
+            } else {{
+                const brain = [
+                    "Analyzing order flow... vibes are moonish.",
+                    "System check: 100% Alpha detected.",
+                    "Cross-referencing with treasury. Looking solid.",
+                    "Volatility is high, but my confidence in you is higher."
+                ];
                 response = brain[Math.floor(Math.random() * brain.length)];
             }}
         }}
