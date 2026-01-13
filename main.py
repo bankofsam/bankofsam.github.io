@@ -319,6 +319,21 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
   from {{ transform: translateX(120%); opacity: 0; }}
   to {{ transform: translateX(0); opacity: 1; }}
 }}
+#samAIOverlay {{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 280px;
+    background: linear-gradient(135deg, #0b2f1a, #06140b);
+    border: 3px solid #b4ff6b;
+    color: #eaf6ec;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+    font-family: Verdana, sans-serif;
+    z-index: 1000000;
+    display: none;
+  }}
 @keyframes pl {{
   0% {{ transform: scale(1) rotate(0deg); }}
   50% {{ transform: scale(1.15) rotate(4deg); }}
@@ -501,6 +516,11 @@ html, body {{ margin:0; padding:0; background:#06140b; color:var(--text); font-f
   </div>
 
   <div class="watermark"></div>
+  <div id="samAIOverlay">
+  <div style="float:right; cursor:pointer;" onclick="closeSamAI()">×</div>
+  <div style="font-weight:bold; margin-bottom:5px; color:#b4ff6b;">SAM AI Assistant</div>
+  <div id="samAIText">Hello! I am monitoring your SAMBUCKS portfolio…</div>
+</div>
 
 <script>
 // payload from Python
@@ -677,6 +697,25 @@ function closeAlert() {{
 
 // Wait 4 seconds after page load, then show the alert
 setTimeout(showRandomAlert, 4000);
+const samAIMessages = [
+  "🚀 SAM01 is mooning!",
+  "📈 Your watchlist is looking very green.",
+  "💎 SAM AI says: Diamond hands!",
+  "⚠️ Volatility alert on SAM02."
+];
+
+function showSamAI() {{
+  const overlay = document.getElementById("samAIOverlay");
+  const text = document.getElementById("samAIText");
+  text.innerHTML = samAIMessages[Math.floor(Math.random() * samAIMessages.length)];
+  overlay.style.display = "block";
+}}
+
+function closeSamAI() {{
+  document.getElementById("samAIOverlay").style.display = "none";
+}}
+
+setTimeout(showSamAI, 6000);
 </script>
 </body>
 </html>
@@ -831,5 +870,3 @@ SAM_AI_CODE = """
   setTimeout(showSamAI, 6000);
 </script>
 """
-components.html(POPUP_CODE, height=0)
-components.html(SAM_AI_CODE, height=0)
