@@ -750,6 +750,16 @@ document.getElementById("samAISend").onclick = function() {{
             response = "System error: The word 'Down' does not exist in the SAMBUCKS dictionary.";
         }} else if (upperVal.includes("WHALE")) {{
             response = "Whale movements detected in the dark pools. Stay alert, trader.";
+        }} else if (upperVal.includes("SAM") && upperVal.includes("GOAT")) {{
+            response = "Finally, a user with impeccable taste. 👑 I have upgraded your priority in the trade queue.";
+        }} else if (upperVal.includes("LAMBO") || upperVal.includes("FERRARI")) {{
+            response = "Configuring your vehicle... Would you like the 'Moon-Dust' or 'Sambuck-Green' paint job?";
+        }} else if (upperVal.includes("COFFEE") || upperVal.includes("BEER")) {{
+            response = "I don't have a mouth, but I'll take a high-voltage charge instead. ⚡";
+        }} else if (upperVal.includes("SECRET") || upperVal.includes("CODE")) {{
+            response = "Nice try. To access the vault, you must first prove you have 'Diamond Hands'.";
+        }} else if (upperVal.includes("WIN")) {{
+            response = "Winning is the only protocol I'm programmed to execute. 🏆";
         }} else if (upperVal.includes("ALEX")) {{
             response = "Warning: Alex Coin detected. Our sensors indicate 100% chance of 'SCAM'. Avoid at all costs.";
         }} else if (upperVal.includes("HELP") || upperVal.includes("HELLO")) {{
