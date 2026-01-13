@@ -743,9 +743,13 @@ document.getElementById("samAISend").onclick = function() {{
         // 1. Check for specific tickers SAM01 through SAM10
         let foundTicker = false;
         for (let i = 1; i <= 10; i++) {{
-            let t = "SAM" + (i < 10 ? "0" + i : i); // Creates "SAM01", "SAM02", etc.
+            let tickerNum = (i < 10 ? "0" + i : i);
+            let t = "SAM" + tickerNum; 
             if (upperVal.includes(t)) {{
-                response = `Analysis for ${t}: Standardizing data... Momentum is currently ${Math.random() > 0.5 ? 'BULLISH' : 'STABLE'}. Recommend monitoring the spread.`;
+                let vibe = "STABLE";
+                if (Math.random() > 0.5) {{ vibe = "BULLISH"; }}
+                
+                response = "Analysis for " + t + ": Standardizing data... Momentum is currently " + vibe + ". Recommend monitoring the spread.";
                 foundTicker = true;
                 break;
             }}
