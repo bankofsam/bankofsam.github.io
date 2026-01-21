@@ -790,15 +790,28 @@ document.getElementById("samAISend").onclick = function() {{
                 response = "I am tracking SAM01 through SAM10. Which one would you like a deep dive on?";
             }} else if (upperVal.includes("GOAT")) {{
                 response = "Correct. SAM is the Greatest of All Time. Portfolio performance proves it.";
-            }} else if (upperVal.includes("SAMBUCKS") || upperVal.includes("MONEY")) {{
-                response = "The SAMBUCKS ecosystem is expanding. Treasury reserves are at an all-time high.";
-            }} else if (upperVal.includes("MOON") || upperVal.includes("ROCKET")) {{
-                response = "Calculating trajectory... 🚀 Engines are primed. Destination: The Moon.";
-            }} else if (upperVal.includes("ALEX")) {{
-                response = "Warning: Alex Coin detected. Our sensors indicate 100% chance of 'SCAM'.";
-            }} else if (upperVal.includes("HELP") || upperVal.includes("HELLO")) {{
-                response = "I am the SAM AI. You can ask me about specific tickers (SAM01-SAM10) or general market sentiment.";
-            }} else {{
+          }} else if (upperVal.includes("SAMBUCKS") || upperVal.includes("MONEY")) {{
+    response = "The SAMBUCKS ecosystem is expanding. Treasury reserves are at an all-time high.";
+
+}} else if (upperVal.includes("MOON") || upperVal.includes("ROCKET")) {{
+    response = "Calculating trajectory... 🚀 Engines are primed. Destination: The Moon.";
+
+}} else if (upperVal.includes("HELP")) {{
+    response = "SAM AI: Help is a strong word. Guidance is more my brand.";
+
+}} else if (upperVal.includes("BUY")) {{
+    response = "SAM AI: Bold move. Emotion detected.";
+
+}} else if (upperVal.includes("HELLO") || upperVal.includes("HI")) {{
+    response = "SAM AI: Hello. I am awake now.";
+
+}} else if (upperVal.includes("ALEX")) {{
+    response = "Warning: Alex Coin detected. Our sensors indicate 100% chance of 'SCAM'.";
+
+}} else if (upperVal.includes("SAM")) {{
+    response = "I am the SAM AI. You can ask me about specific tickers (SAM01–SAM10) or general market sentiment.";
+
+}} else {{
                 const brain = [
                     "Analyzing order flow... vibes are moonish.",
                     "System check: 100% Alpha detected.",
