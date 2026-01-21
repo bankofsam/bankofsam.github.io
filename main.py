@@ -702,25 +702,7 @@ function closeAlert() {{
 
 // Wait 4 seconds after page load, then show the alert
 setTimeout(showRandomAlert, 4000);
-const samAIMessages = [
-  "🚀 SAM01 is mooning!",
-  "📈 Your watchlist is looking very green.",
-  "💎 SAM AI says: Diamond hands!",
-  "⚠️ Volatility alert on SAM02."
-];
 
-function showSamAI() {{
-  const overlay = document.getElementById("samAIOverlay");
-  const text = document.getElementById("samAIText");
-  text.innerHTML = samAIMessages[Math.floor(Math.random() * samAIMessages.length)];
-  overlay.style.display = "block";
-}}
-
-function closeSamAI() {{
-  document.getElementById("samAIOverlay").style.display = "none";
-}}
-
-setTimeout(showSamAI, 6000);
 // --- NEW & IMPROVED BRAIN WITH MEMORY AND PRICE GEN ---
 // 1. Move the memory variable outside the click function so it stays saved!
 if (typeof lastTicker === 'undefined') {{ var lastTicker = ""; }}
